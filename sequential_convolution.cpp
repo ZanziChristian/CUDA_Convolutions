@@ -37,10 +37,6 @@ void convolution(float *input, float *output, float *filter, int channels, int w
                         sum += input[idx] * filter[(fx + FILTER_RADIUS) * FILTER_WIDTH + (fy + FILTER_RADIUS)];
                     }
                 }
-
-                if (sum < 0) sum = 0;
-                if (sum > 255) sum = 255;
-
                 int out_idx = (y * width + x) * channels + k;
                 output[out_idx] = sum;
             }
